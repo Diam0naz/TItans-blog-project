@@ -9,7 +9,7 @@
   <body
     class="bg-gray-100 min-h-screen flex items-center justify-center bg-[url('./images/bf33c821-cc84-4616-b174-fa12eae0ebbe.jpg')]">
     <form
-      id="registrationForm"
+      id="form"
       class="bg-white p-8 rounded-lg shadow-md w-full max-w-md space-y-4">
       <img
         src="./images/ChatGPT_Image_May_22__2025__01_19_05_AM-removebg-preview.png"
@@ -21,7 +21,7 @@
         <label class="block text-gray-700 mb-2" for="fullname">Full Name</label>
         <input
           type="text"
-          id="fullname"
+          id="name"
           name="fullname"
           class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
           required
@@ -46,22 +46,6 @@
         </p>
       </div>
 
-      <!-- Phone Number -->
-      <div>
-        <label class="block text-gray-700 mb-2" for="phone">Phone Number</label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-          required
-          pattern="^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]{7,}$"
-          title="Valid phone number required" />
-        <p class="text-red-500 text-sm hidden" id="phoneError">
-          Please enter a valid phone number
-        </p>
-      </div>
-
       <!-- Password -->
       <div>
         <label class="block text-gray-700 mb-2" for="password">Password</label>
@@ -72,11 +56,30 @@
           class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
           required
           minlength="8"
-          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
           title="Minimum 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character" />
         <p class="text-red-500 text-sm hidden" id="passError">
           Password must contain at least 8 characters with uppercase, lowercase,
           number, and special character
+        </p>
+      </div>
+
+      <!-- team -->
+      <div>
+        <label class="block text-gray-700 mb-2" for="team">Select Team</label>
+        <select
+          name="team"
+          id="team"
+          class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+          required>
+          <option value="" disabled selected>-- Select a team --</option>
+          <option value="titans">Titans</option>
+          <option value="404">404</option>
+          <option value="pullrequest">Pull Request</option>
+          <option value="phoenix">Phoenix</option>
+          <option value="elon">Elon</option>
+        </select>
+        <p class="text-red-500 text-sm hidden" id="teamError">
+          Please select a valid team.
         </p>
       </div>
 
@@ -88,22 +91,24 @@
     </form>
 
     <script>
-      const form = document.getElementById("registrationForm");
+      const form = document.getElementById("form");
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
+
         if (validateForm()) {
           // Form is valid - process registration
           const userData = {
             fullname: form.fullname.value.trim(),
             email: form.email.value.trim(),
-            phone: form.phone.value.trim(),
             password: form.password.value,
+            team: form.team.value,
           };
-
           console.log("Valid form data:", userData);
           // Here you would typically send data to your API
         }
+
+        
       });
 
       function validateForm() {
@@ -127,15 +132,6 @@
           hideError("emailError");
         }
 
-        // Phone Validation
-        const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]{7,}$/;
-        if (!phoneRegex.test(form.phone.value.trim())) {
-          showError("phoneError", "Please enter a valid phone number");
-          isValid = false;
-        } else {
-          hideError("phoneError");
-        }
-
         // Password Validation
         const passwordRegex =
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -147,6 +143,16 @@
           isValid = false;
         } else {
           hideError("passError");
+        }
+
+        //  team validation
+        const teamRegex = /^(titans|404|pullrequest|phoenix|elon)$/;
+        if (!teamRegex.test(form.team.value)) {
+          alert("Please select a valid team.");
+          showError("teamError", "Select a valid team");
+          isValid = false;
+        } else {
+          hideError("teamError");
         }
 
         return isValid;
@@ -162,6 +168,42 @@
         const errorElement = document.getElementById(elementId);
         errorElement.classList.add("hidden");
       }
+
+      // const name = document.getElementById("name").value;
+      // const email = document.getElementById("email").value;
+      // const password = document.getElementById("password").value;
+      // const team_name = document.getElementById("team").value;
+
+      // fetch("https://test.blockfuselabs.com/api/register", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     accept: "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     name,
+      //     email,
+      //     password,
+      //     team_name,
+      //   }),
+      // })
+      //   .then(async (response) => {
+      //     const data = await response.json();
+      //     if (response.ok) {
+      //       alert("User registered successfully!");
+      //       localStorage.setItem("registeredUser", JSON.stringify(data));
+      //       window.location.href = "./login.html";
+      //     } else {
+      //       alert(data.message || "Registration failed.");
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     alert("Network error.");
+      //     console.error(error);
+      //   });
     </script>
   </body>
 </html>
+
+<!-- Password1!	✅	Meets all criteria -->
+<!-- abcDEF1$	✅	Meets all criteria -->
