@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+
+    </nav>
+          <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="md:col-span-2" id="mainPost">
+            <h1 class="text-xl font-bold mb-4">Education</h1>
+            <img src="./img/education7.jpg" id="postImage" alt="Sport Image"
+                class="w-full h-80 object-cover rounded-lg mb-6">
+            <p class="text-sm text-gray-500"><span class="font-semibold" id="postCategory">education</span> • <span
+                    id="postDate">May 21, 2025</span></p>
+            <h1 class="text-4xl font-extrabold mt-2 mb-4" id="postTitle">Nigerian universities are battling outdated infrastructure, overcrowded lecture halls, and chronic underfunding.
+            </h1>
+            <p class="mb-6 text-sm text-gray-600">By <span class="font-semibold" id="postAuthor">Gotom Golponer Haruna</span>
+            </p>
+            <article class="prose lg:prose-xl" id="postContent">
+                <p>Nigerian universities are grappling with serious challenges that threaten the quality of education and the future of the nation’s leaders. Outdated infrastructure, overcrowded lecture halls, and chronic underfunding have become the norm rather than the exception. Many institutions struggle with dilapidated buildings, insufficient classrooms, and outdated laboratories, making it difficult for students to learn effectively.
+
+                Overcrowding exacerbates the problem, with lecture halls often filled beyond capacity, hindering student engagement and interaction. This environment is far from conducive to fostering innovation and critical thinking, which are essential for developing the next generation of leaders. Chronic underfunding worsens the situation, limiting universities’ ability to hire qualified faculty, invest in research, and maintain basic facilities.
+
+                The question is: how can Nigerian universities prepare future leaders when their learning environment is crumbling? Without urgent reforms and increased investment, the country risks producing graduates ill-equipped to face modern challenges. The government, private sector, and stakeholders must collaborate to revamp the education sector, improve infrastructure, boost funding, and ensure quality education is accessible to all.
+
+                Students deserve better—a learning environment that nurtures talent, creativity, and ambition. The future of Nigeria depends on how well its universities rise to meet these challenges. #ReformEducation #NigerianUniversities #StudentsDeserveBetter
+                </p>
+            </article>
+            <div class="mt-12">
+                <h2 class="text-2xl font-bold mb-4">Comments</h2>
+                <form id="commentForm" class="space-y-4 mb-6">
+                    <input type="text" id="username" placeholder="Your name" required
+                        class="w-full border p-3 rounded border-slate-900" />
+                    <textarea id="comment" placeholder="Your comment" required
+                        class="w-full border p-3 rounded h-32"></textarea>
+                    <button type="submit"
+                        class="bg-[#023020] text-white px-6 py-2 rounded hover:bg-red-800">Comment</button>
+                </form>
+                <div id="commentList" class="space-y-4"></div>
+            </div>
+        </div>
+        <aside class="space-y-6">
+            <h2 class="text-xl font-bold mb-4">Related Education News</h2>
+            <div class="space-y-4">
+                <button class="text-left bg-white shadow p-4 rounded hover:bg-blue-50" onclick="swapPost(1)">
+                    <img src="./img/education6.jpg" alt="" class="w-full h-32 object-cover rounded mb-2">
+                    <h3 class="font-semibold">Private universities in Nigeria offer what public ones can't </h3>
+                    <p class="text-sm text-gray-500">By Prof Nenpez</p>
+                </button>
+                <button class="text-left bg-white shadow p-4 rounded hover:bg-blue-50" onclick="swapPost(2)">
+                    <img src="./img/education5.jpg" alt="" class="w-full h-32 object-cover rounded mb-2">
+                    <h3 class="font-semibold">Tech schools are on the rise in Nigeria, equipping a new generation with digital skills </h3>
+                    <p class="text-sm text-gray-500">News 24/7</p>
+                </button>
+                 <button class="text-left bg-white shadow p-4 rounded hover:bg-blue-50" onclick="swapPost(3)">
+                    <img src="./img/education4.jpg" alt="" class="w-full h-32 object-cover rounded mb-2">
+                    <h3 class="font-semibold">Dreaming of studying abroad? 🌍 A scholarship could be your ticket. Don’t miss the chance to learn, grow, and explore the world—without the debt. </h3>
+                    <p class="text-sm text-gray-500">News 24/7</p>
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-20">
+        <div class="max-w-6xl mx-auto px-4 py-8 text-center text-gray-600">
+            &copy; 2025 MyBlog. All rights reserved.
+        </div>
+    </footer>
+    <section>
+
+    </section>
+</body>
+</html>

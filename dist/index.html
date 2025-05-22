@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="m-0 p-0 box-border w-screen">
+    <!-- nav bar -->
+
+    <div class="w-full bg-slate-100">
+      <!-- mini bar 1 -->
+      <div class="hidden lg:block max-w-6xl mx-auto px-4">
+        <div class="flex justify-between w-full px-2">
+          <div class="flex justify-between w-[70%] items-center space-x-10">
+            <form action="" class="flex justify-center items-center space-x-3">
+              <input
+                type="text"
+                name=""
+                placeholder="search city.."
+                id="search-city"
+                class="w-48 focus:outline-none px-3 focus:border-none bg-slate-300 focus:bg-slate-300 focus:text-white text-gray-900 focus:border rounded-lg border-gray-900 my-1" />
+              <button
+                type="submit"
+                id="search-btn"
+                class="flex justify-center items-center">
+                Search
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+              </button>
+            </form>
+            <div class="flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+              </svg>
+
+              <p id="location" class="flex justify-center items-center"></p>
+            </div>
+            <div class="flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+              </svg>
+
+              <p id="date" class="flex justify-center items-center"></p>
+            </div>
+            <div class="flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+
+              <p id="time" class="flex justify-center items-center"></p>
+            </div>
+            <div class="flex items-center justify-center">
+              <img
+                src="./images/icons8-heavy-rain-48 (1).png"
+                class="size-7 object-cover"
+                alt="" />
+              <p id="temperature"></p>
+
+              <img id="weather-icon" class="inline-block w-6 h-6" />
+            </div>
+          </div>
+
+          <!-- icon div -->
+          <div class="w-[30%] flex justify-end">
+            <ul class="flex items-center w-full justify-end space-x-3">
+              <li>
+                <a href="#" class="hover:text-red-400">
+                  <svg
+                    class="size-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-instagram-icon lucide-instagram">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-red-400"
+                  ><svg
+                    class="size-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-github-icon lucide-github">
+                    <path
+                      d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-red-400"
+                  ><svg
+                    class="size-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-twitter-icon lucide-twitter">
+                    <path
+                      d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-red-400">
+                  <svg
+                    class="size-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-linkedin-icon lucide-linkedin">
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect width="4" height="12" x="2" y="9" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <hr class="border border-slate-300" />
+    </div>
+    <!-- nav 2 -->
+    <div class="w-full bg-white">
+      <!-- min bar 2 -->
+      <div
+        class="max-w-6xl px-4 mx-auto lg:flex lg:flex-col py-2 flex flex-row-reverse justify-between">
+        <!-- logo -->
+        <div>
+          <img
+            src="./images/ChatGPT_Image_May_22__2025__01_19_05_AM-removebg-preview.png"
+            alt=""
+            class="size-28 object-contain" />
+        </div>
+        <!-- responsiveness -->
+        <!-- Hamburger Button -->
+        <button
+          id="hamburger"
+          class="md:hidden block p-2 focus:outline-none"
+          aria-label="Toggle menu">
+          <div class="w-6 space-y-2">
+            <span
+              class="block w-full h-[2px] bg-red-500 transition-all duration-300 ease-in-out origin-center"></span>
+            <span
+              class="block w-full h-[1px] bg-black transition-all duration-300 ease-in-out"></span>
+            <span
+              class="block w-full h-[1px] bg-black transition-all duration-300 ease-in-out origin-center"></span>
+          </div>
+        </button>
+
+        <!-- Navigation Menu -->
+        <ul
+          id="nav-menu"
+          class="lg:hidden fixed md:relative left-0 md:left-auto top-16 md:top-0 w-full md:w-auto h-[500px] md:h-auto bg-gradient-to-tr from-red-500 to-transparent backdrop-blur-sm md:bg-transparent transform -translate-x-full translate-y-4 md:translate-x-0 transition-transform duration-300 ease-in-out z-50 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 p-4 md:p-0">
+          <li>
+            <a
+              href="#"
+              class="text-white hover:text-red-600 text-lg md:text-base block"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-white hover:text-red-600 text-lg md:text-base block"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-white hover:text-red-600 text-lg md:text-base block"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-white hover:text-red-600 text-lg md:text-base block"
+              >Contact</a
+            >
+          </li>
+        </ul>
+        <!-- nav -->
+        <nav class="hidden lg:flex justify-between items-center gap-32">
+          <ul class="flex justify-between items-center w-[70%]">
+            <li><a href="#" class="text-red-600 font-semibold">HOME</a></li>
+            <li class="group relative">
+              <a
+                href="#"
+                class="font-medium hover:text-red-500 transition-colors duration-1000 ease-out"
+                ><p>CATEGORIES</p>
+              </a>
+              <ul
+                class="hidden group-focus:block group-hover:transition translate-y-[30px] duration-1000 ease-out absolute delay-500 top-0 b bg-red-500 left-0 group-hover:block z-10 text-white gap-[2px] w-72">
+                <li
+                  class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                  <a href=""> HEALTH</a>
+                </li>
+                <li
+                  class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                  <a href=""> TECHNOLOGY </a>
+                </li>
+                <li
+                  class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                  <a href=""> BUSINESS </a>
+                </li>
+                <li
+                  class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                  <a href=""> LIFESTYLE </a>
+                </li>
+                <li
+                  class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                  <a href=""> TRAVEL </a>
+                </li>
+                <li
+                  class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                  <a href=""> FOOD </a>
+                </li>
+                <li
+                  class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                  <a href=""> SPORTS</a>
+                </li>
+                <li
+                  class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                  <a href=""> SCIENCE</a>
+                </li>
+                <li
+                  class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                  <a href=""> ENTERTAINMENT</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="font-medium hover:text-re-500 transition-colors duration-1000 ease-out"
+                >PAGES</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="font-medium hover:text-red-500 transition-colors duration-1000 ease-out"
+                >POLITICS</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="font-medium hover:text-red-500 transition-colors duration-1000 ease-out"
+                >FASHION</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="font-medium hover:text-red-500 transition-colors duration-1000 ease-out"
+                >BUSINESS</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="font-medium hover:text-red-500 transition-colors duration-1000 ease-out"
+                >SPORTS</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="font-medium hover:text-red-500 transition-colors duration-1000 ease-out"
+                >TRAVEL</a
+              >
+            </li>
+          </ul>
+          <div>
+            <div class="flex gap-3 items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+              </svg>
+
+              <!-- hr -->
+              <hr class="w-5 rotate-90 border border-gray-300" />
+
+              <button id="hamburger-toggle" class="group space-y-1.5">
+                <span
+                  class="block w-6 h-1 bg-red-500 transition-transform origin-left group-focus:translate-y-[9px] group-focus:rotate-45"></span>
+                <span
+                  class="block w-6 h-0.5 bg-black transition-transform origin-left group-focus:opacity-0"></span>
+                <span
+                  class="block w-6 h-0.5 bg-black transition-transform origin-left group-focus:-translate-y-[9px] group-focus:-rotate-45"></span>
+              </button>
+              <!-- Login buttons -->
+              <div class="hidden" id="auth">
+                <button
+                  class="w-40 h-12 hover:bg-red-500 transition-all duration-500 delay-100 rounded-lg">
+                  <a href="./login.html">Login</a>
+                </button>
+                <button
+                  class="bg-red-500 hover:bg-red-800 text-center text-white font-semibold rounded-lg h-12 w-40">
+                  <a href="./register.html">Sign-in</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="w-full bg-slate-200 min-h-[50px]"></div>
+    <!-- the body section -->
+    <section class="w-full my-5">
+      <div class="max-w-6xl mx-auto px-4">
+        <div
+          class="w-60 p-4 bg-red-500 border border-red-500 relative scale-75 -translate-x-[30px]">
+          <p
+            class="text-lg lg:text-[1.8rem] font-semibold text-gray-200 scale-100">
+            LATEST NEWS
+          </p>
+          <div
+            class="absolute -top-[1px] right-0 w-0 h-0 border-t-[0px] border-b-[10px] border-l-[50px] border-t-transparent border-b-transparent border-l-red-500 translate-x-[50px]"></div>
+        </div>
+        <!-- grid div -->
+        <section class="lg:grid grid-cols-3 gap-2 flex flex-col">
+          <div
+            class="col-start-1 col-span-2 gap-2 overflow-hidden group relative">
+            <img
+              src="./images/crisis-5.png"
+              class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-linear"
+              alt="" />
+            <div
+              class="absolute bg-gradient-to-t from-red-700 to transparent bottom-0 left-0 p-5 lg:p-10 flex flex-col justify-center w-full">
+              <div
+                class="w-60 p-4 bg-red-500 border border-r-0 border-red-500 relative scale-50 -translate-x-14">
+                <p class="text-[1.5rem] scale-110 font-semibold text-gray-200">
+                  POLITICS
+                </p>
+                <div
+                  class="absolute -top-[1px] right-2 w-0 h-0 border-t-[0px] border-b-[20px] border-l-[60px] border-t-transparent border-b-transparent border-l-red-500 translate-x-[60px]"></div>
+              </div>
+              <article
+                class="flex flex-col justify-center items-start text-white">
+                <p class="flex justify-center items-center">
+                  By Adams
+                  <span class="flex items-center justify-center mx-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-6">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                    </svg>
+                    <span id="date-authored">March 22, 2029</span>
+                  </span>
+                </p>
+                <h1 class="font-bold text-[1.1rem] lg:text-[2.5rem]">
+                  Today is goint to be the day!
+                </h1>
+              </article>
+            </div>
+          </div>
+          <div class="col-start-3 col-span-1 grid grid-rows-2 gap-2">
+            <div class="row-start-1 row-span-1 relative group overflow-hidden">
+              <img
+                src="./images/crisis-5.png"
+                class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-linear"
+                alt="" />
+              <div
+                class="absolute bg-gradient-to-t from-slate-700 to transparent bottom-0 left-0 p-5 flex flex-col justify-center w-full h-[50%]">
+                <div
+                  class="w-60 p-4 bg-slate-600 border border-r-0 border-slate-600 relative scale-50 -translate-x-14">
+                  <p
+                    class="text-[1.5rem] scale-110 font-semibold text-gray-200">
+                    TRAVEL
+                  </p>
+                  <div
+                    class="absolute -top-[1px] right-2 w-0 h-0 border-t-[0px] border-b-[20px] border-l-[60px] border-t-transparent border-b-transparent border-l-slate-600 translate-x-[60px]"></div>
+                </div>
+                <article
+                  class="flex flex-col justify-center items-start text-white mb-5">
+                  <p class="flex justify-center items-center">
+                    By Adams
+                    <span class="flex items-center justify-center mx-1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="size-6">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                      </svg>
+                      <span id="date-authored">March 22, 2029</span>
+                    </span>
+                  </p>
+                  <h1 class="font-bold text-[1.1rem]">
+                    Today is goint to be the day!
+                  </h1>
+                </article>
+              </div>
+            </div>
+            <div class="row-start-2 row-span-1 relative group overflow-hidden">
+              <img
+                src="./images/crisis-5.png"
+                class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-linear"
+                alt="" />
+              <div
+                class="absolute bg-gradient-to-t from-black to transparent bottom-0 left-0 px-5 py-10 flex flex-col justify-center w-full h-[50%]">
+                <div
+                  class="w-60 p-4 bg-black border border-r-0 border-black relative scale-50 -translate-x-14">
+                  <p
+                    class="text-[1.5rem] scale-110 font-semibold text-gray-200">
+                    BUSINESS
+                  </p>
+                  <div
+                    class="absolute -top-[1px] right-2 w-0 h-0 border-t-[0px] border-b-[20px] border-l-[60px] border-t-transparent border-b-transparent border-l-black translate-x-[60px]"></div>
+                </div>
+                <article
+                  class="flex flex-col justify-center items-start mb-5 text-white">
+                  <p class="flex justify-center items-center">
+                    By Adams
+                    <span class="flex items-center justify-center mx-1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="size-6">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                      </svg>
+                      <span id="date-authored">March 22, 2029</span>
+                    </span>
+                  </p>
+                  <h1 class="font-bold text-[1.1rem]">
+                    Today is goint to be the day!
+                  </h1>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+    <div class="min-h-[40px] w-full bg-slate-200"></div>
+    <section class="w-full px-4 py-8">
+      <div class="max-w-6xl mx-auto px-4">
+        <div
+          class="w-60 p-4 bg-red-800 border border-red-800 relative scale-75 -translate-x-[30px]">
+          <p
+            class="text-lg lg:text-[1.8rem] font-semibold text-gray-200 scale-100">
+            TRENDING TOPICS
+          </p>
+          <div
+            class="absolute -top-[1px] right-0 w-0 h-0 border-t-[0px] border-b-[10px] border-l-[50px] border-t-transparent border-b-transparent border-l-red-800 translate-x-[50px]"></div>
+        </div>
+      </div>
+
+      <div
+        class="mx-auto grid px-4 max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Post Card -->
+        <div
+          class="flex flex-col rounded-md border border-slate-200 bg-white shadow-2xl">
+          <div class="relative h-48 w-full overflow-hidden rounded-t-md">
+            <img
+              src="./images/crisis-2.png"
+              alt="Achievement Post"
+              class="h-full w-full object-cover transition-all duration-700 ease-out hover:scale-105" />
+          </div>
+
+          <div class="flex flex-1 flex-col p-4">
+            <div
+              class="mb-3 flex items-center gap-2 text-sm font-extrabold text-gray-600">
+              <img
+                src="./images/crisis-5.png"
+                alt="Date Icon"
+                class="h-6 w-6 rounded-full object-cover" />
+              <span>June 26, 2025</span>
+            </div>
+
+            <p class="mb-4 flex-1 text-base font-semibold text-gray-800">
+              "Dreaming of studying abroad? 🌍 A scholarship could be your
+              ticket. Don’t miss the chance to learn, grow, and explore the
+              world—without the debt."
+            </p>
+
+            <div class="flex items-start gap-2 my-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+              </svg>
+              <p>
+                by
+                <span class="font-semibold hover:text-red-500">Abel Adam</span>
+              </p>
+            </div>
+
+            <a
+              href="https://www.scholarshipair.com/"
+              class="mb-4 inline-block rounded-md border border-black bg-red-600 px-4 py-2 text-sm text-white transition-colors duration-300 hover:bg-red-900">
+              Read more
+            </a>
+          </div>
+        </div>
+        <div
+          class="flex flex-col rounded-md border border-slate-200 bg-white shadow-2xl">
+          <div class="relative h-48 w-full overflow-hidden rounded-t-md">
+            <img
+              src="./images/crisis-2.png"
+              alt="Achievement Post"
+              class="h-full w-full object-cover transition-all duration-700 ease-out hover:scale-105" />
+          </div>
+
+          <div class="flex flex-1 flex-col p-4">
+            <div
+              class="mb-3 flex items-center gap-2 text-sm font-extrabold text-gray-600">
+              <img
+                src="./images/crisis-5.png"
+                alt="Date Icon"
+                class="h-6 w-6 rounded-full object-cover" />
+              <span>June 26, 2025</span>
+            </div>
+
+            <p class="mb-4 flex-1 text-base font-semibold text-gray-800">
+              "Dreaming of studying abroad? 🌍 A scholarship could be your
+              ticket. Don’t miss the chance to learn, grow, and explore the
+              world—without the debt."
+            </p>
+
+            <div class="flex items-start gap-2 my-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+              </svg>
+              <p>
+                by
+                <span class="font-semibold hover:text-red-500">Abel Adam</span>
+              </p>
+            </div>
+
+            <a
+              href="https://www.scholarshipair.com/"
+              class="mb-4 inline-block rounded-md border border-black bg-red-600 px-4 py-2 text-sm text-white transition-colors duration-300 hover:bg-red-900">
+              Read more
+            </a>
+          </div>
+        </div>
+        <div
+          class="flex flex-col rounded-md border border-slate-200 bg-white shadow-2xl">
+          <div class="relative h-48 w-full overflow-hidden rounded-t-md">
+            <img
+              src="./images/crisis-2.png"
+              alt="Achievement Post"
+              class="h-full w-full object-cover transition-all duration-700 ease-out hover:scale-105" />
+          </div>
+
+          <div class="flex flex-1 flex-col p-4">
+            <div
+              class="mb-3 flex items-center gap-2 text-sm font-extrabold text-gray-600">
+              <img
+                src="./images/crisis-5.png"
+                alt="Date Icon"
+                class="h-6 w-6 rounded-full object-cover" />
+              <span>June 26, 2025</span>
+            </div>
+
+            <p class="mb-4 flex-1 text-base font-semibold text-gray-800">
+              "Dreaming of studying abroad? 🌍 A scholarship could be your
+              ticket. Don’t miss the chance to learn, grow, and explore the
+              world—without the debt."
+            </p>
+
+            <div class="flex items-start gap-2 my-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+              </svg>
+              <p>
+                by
+                <span class="font-semibold hover:text-red-500">Abel Adam</span>
+              </p>
+            </div>
+
+            <a
+              href="https://www.scholarshipair.com/"
+              class="mb-4 inline-block rounded-md border border-black bg-red-600 px-4 py-2 text-sm text-white transition-colors duration-300 hover:bg-red-900">
+              Read more
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-slate-950 text-white mt-12">
+      <div class="max-w-6xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <!-- Logo and Description -->
+          <div class="col-span-1 lg:col-span-2">
+            <img
+              src="./images/May 22, 2025, 12_42_03 AM.png"
+              alt="Logo"
+              class="h-16 mb-4" />
+            <p class="text-slate-300 text-sm">
+              Your trusted source for breaking news, analysis, and engaging
+              stories. Covering global events with accuracy and integrity.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="mt-4 md:mt-0">
+            <h3 class="text-red-500 font-bold mb-4 text-lg">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-red-400 transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-red-400 transition-colors"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-red-400 transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-red-400 transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div>
+            <h3 class="text-red-500 font-bold mb-4 text-lg">Newsletter</h3>
+            <form class="flex flex-col gap-3">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                class="p-2 rounded bg-red-700 border border-slate-600 focus:outline-none focus:border-green-500" />
+              <button
+                type="submit"
+                class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition-colors">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Social Media and Copyright -->
+        <div class="border-t border-red-900 mt-8 pt-8">
+          <div
+            class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-white hover:text-red-400 transition-colors">
+                <svg
+                  class="size-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-instagram-icon lucide-instagram">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-white hover:text-red-400 transition-colors">
+                <svg
+                  class="size-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-github-icon lucide-github">
+                  <path
+                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-white hover:text-red-400 transition-colors"
+                ><svg
+                  class="size-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-linkedin-icon lucide-linkedin">
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-white hover:text-red-400 transition-colors"
+                ><svg
+                  class="size-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-twitter-icon lucide-twitter">
+                  <path
+                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                </svg>
+              </a>
+            </div>
+            <p class="text-slate-400 text-sm text-center">
+              © 2024 News Portal. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Technology Blog | TechTitans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-50 text-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-white shadow">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <a href="index.html" class="text-xl font-bold text-red-900"
+            >TechTitans</a
+          >
+          <div class="relative group">
+            <button
+              class="bg-red-900 text-white px-6 py-2 rounded hover:bg-red-800 font-medium">
+              Categories ▼
+            </button>
+            <ul
+              class="absolute hidden group-hover:block bg-white shadow rounded mt-2 w-48 z-10">
+              <li>
+                <a href="sport.html" class="block px-4 py-2 hover:bg-gray-100"
+                  >Sport</a
+                >
+              </li>
+              <li>
+                <a href="tech.html" class="block px-4 py-2 hover:bg-gray-100"
+                  >Technology</a
+                >
+              </li>
+              <li>
+                <a href="food.html" class="block px-4 py-2 hover:bg-gray-100"
+                  >Food</a
+                >
+              </li>
+              <li>
+                <a
+                  href="education.html"
+                  class="block px-4 py-2 hover:bg-gray-100"
+                  >Education</a
+                >
+              </li>
+              <li>
+                <a href="health.html" class="block px-4 py-2 hover:bg-gray-100"
+                  >Health</a
+                >
+              </li>
+              <li>
+                <a
+                  href="lifestyle.html"
+                  class="block px-4 py-2 hover:bg-gray-100"
+                  >Lifestyle</a
+                >
+              </li>
+              <li>
+                <a
+                  href="religion.html"
+                  class="block px-4 py-2 hover:bg-gray-100"
+                  >Religion</a
+                >
+              </li>
+              <li>
+                <a href="travel.html" class="block px-4 py-2 hover:bg-gray-100"
+                  >Travel</a
+                >
+              </li>
+              <li>
+                <a
+                  href="entertainment.html"
+                  class="block px-4 py-2 hover:bg-gray-100"
+                  >Entertainment</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div
+      class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="md:col-span-2" id="mainPost">
+        <h1 class="text-xl font-bold mb-4">Technology</h1>
+        <img
+          src="./images/tech-5.png"
+          id="postImage"
+          alt="Post Image"
+          class="w-full h-80 object-cover rounded-lg mb-6" />
+        <p class="text-sm text-gray-500">
+          <span class="font-semibold" id="postCategory">Technology</span> •
+          <span id="postDate">May 21, 2025</span>
+        </p>
+        <h1 class="text-4xl font-extrabold mt-2 mb-4" id="postTitle">
+          How AI Is Transforming Everyday Life
+        </h1>
+        <p class="mb-6 text-sm text-gray-600">
+          By
+          <span class="font-semibold" id="postAuthor">Lere Dakshak Mamman</span>
+        </p>
+        <article class="prose lg:prose-xl" id="postContent">
+          <p>
+            Artificial Intelligence is no longer just a buzzword—it's becoming
+            part of our daily routines. From voice assistants to personalized
+            content, the way we interact with technology is changing rapidly...
+          </p>
+          <p>
+            <span class="text-xl font-bold mt-3"
+              >Lagos Recognized as World's Top Emerging Tech Hub</span
+            ><br />
+            Lagos has been named the world's leading emerging tech ecosystem,
+            according to a recent Dealroom survey. The city has seen significant
+            growth in venture capital investments, startup value creation, and
+            overall tech sector expansion, positioning it as a global leader
+            among rising tech hubs. CNBC Africa Federal Government Releases
+            National Blockchain Policy The Federal Ministry of Communications,
+            Innovation, and Digital Economy has unveiled a National Blockchain
+            Policy Whitepaper. This blueprint aims to foster innovation, build
+            trust, and promote inclusive development through a structured
+            framework for blockchain adoption across various sectors in Nigeria.
+            TechAfrica News <br />
+
+            Lagos State Secures $22 Million for Fiber Infrastructure Expansion
+            The Lagos State Government has secured a $22 million foreign direct
+            investment to expand its fiber optic infrastructure. This initiative
+            is part of the state's efforts to enhance digital connectivity and
+            support the growing demands of its tech ecosystem.
+          </p>
+        </article>
+
+        <!-- Comment Section -->
+        <div class="mt-12">
+          <h2 class="text-2xl font-bold mb-4">Comments</h2>
+          <form id="commentForm" class="space-y-4 mb-6">
+            <input
+              type="text"
+              id="username"
+              placeholder="Your name"
+              required
+              class="w-full border p-3 rounded" />
+            <textarea
+              id="comment"
+              placeholder="Your comment"
+              required
+              class="w-full border p-3 rounded h-32"></textarea>
+            <button
+              type="submit"
+              class="bg-red-900 text-white px-6 py-2 rounded hover:bg-red-800">
+              Comment
+            </button>
+          </form>
+          <div id="commentList" class="space-y-4"></div>
+        </div>
+      </div>
+
+      <!-- Related Posts -->
+      <aside class="space-y-6">
+        <h2 class="text-xl font-bold mb-4">Related Tech News</h2>
+        <div class="space-y-4">
+          <button
+            class="text-left bg-white shadow p-4 rounded hover:bg-blue-50"
+            onclick="swapPost(1)">
+            <img
+              src="./images/tech-2.png"
+              alt=""
+              class="w-full h-32 object-cover rounded mb-2" />
+            <h3 class="font-semibold">5G and the Future of Internet Speed</h3>
+            <p class="text-sm text-gray-500">By Praise Techie</p>
+          </button>
+          <button
+            class="text-left bg-white shadow p-4 rounded hover:bg-blue-50"
+            onclick="swapPost(2)">
+            <img
+              src="./images/tech-3.png"
+              alt=""
+              class="w-full h-32 object-cover rounded mb-2" />
+            <h3 class="font-semibold">
+              Quantum Computing: What You Should Know
+            </h3>
+            <p class="text-sm text-gray-500">By Andrew</p>
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-20">
+      <div class="max-w-6xl mx-auto px-4 py-8 text-center text-gray-600">
+        &copy; 2025 MyBlog. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      let posts = [
+        {
+          title: "How AI Is Transforming Everyday Life",
+          image: "./images/tech-5.png",
+          content:
+            "Artificial Intelligence is no longer just a buzzword—it's becoming part of our daily routines. From voice assistants to personalized content, the way we interact with technology is changing rapidly...",
+          author: "Andrew",
+          category: "Technology",
+          date: "May 21, 2025",
+        },
+        {
+          title: "5G and the Future of Internet Speed",
+          image: "./images/tech-2.png",
+          content:
+            "The rollout of 5G is changing how we experience the internet. With faster speeds and lower latency, expect new innovations in communication and data sharing...",
+          author: "Praise Techie",
+          category: "Technology",
+          date: "May 20, 2025",
+        },
+        {
+          title: "Quantum Computing: What You Should Know",
+          image: "./images/tech-3.png",
+          content:
+            "Quantum computing promises to revolutionize problem-solving. Though still in development, its potential to solve complex challenges is exciting industries worldwide...",
+          author: "Andrew",
+          category: "Technology",
+          date: "May 19, 2025",
+        },
+      ];
+
+      function swapPost(index) {
+        const post = posts[index];
+        document.getElementById("postTitle").textContent = post.title;
+        document.getElementById("postImage").src = post.image;
+        document.getElementById(
+          "postContent"
+        ).innerHTML = `<p>${post.content}</p>`;
+        document.getElementById("postAuthor").textContent = post.author;
+        document.getElementById("postCategory").textContent = post.category;
+        document.getElementById("postDate").textContent = post.date;
+        localStorage.setItem("tech-post-comments", JSON.stringify([])); // clear comments
+        loadComments();
+      }
+
+      const commentForm = document.getElementById("commentForm");
+      const commentList = document.getElementById("commentList");
+      const postKey = "tech-post-comments";
+
+      function loadComments() {
+        const stored = JSON.parse(localStorage.getItem(postKey)) || [];
+        commentList.innerHTML = "";
+        stored.forEach((c) => {
+          const div = document.createElement("div");
+          div.className = "border p-4 rounded bg-white";
+          div.innerHTML = `<p class="text-sm font-semibold">${c.name}</p><p>${c.text}</p>`;
+          commentList.appendChild(div);
+        });
+      }
+
+      commentForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const username = document.getElementById("username").value.trim();
+        const comment = document.getElementById("comment").value.trim();
+        if (!username || !comment) return;
+
+        const newComment = { name: username, text: comment };
+        const allComments = JSON.parse(localStorage.getItem(postKey)) || [];
+        allComments.unshift(newComment);
+        localStorage.setItem(postKey, JSON.stringify(allComments));
+        loadComments();
+        commentForm.reset();
+      });
+
+      loadComments();
+    </script>
+  </body>
+</html>

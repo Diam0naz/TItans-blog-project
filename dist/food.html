@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOOD</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <nav class="bg-white shadow">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="index.html" class="text-xl font-bold text-red-900">TechTitans</a>
+                <div class="relative group">
+                    <button class="bg-red-900 text-white px-6 py-2 rounded hover:bg-red-800 font-medium">Categories
+                        ▼</button>
+                    <ul class="absolute hidden group-hover:block bg-white shadow rounded mt-2 w-48 z-10">
+                        <li><a href="sport.html" class="block px-4 py-2 hover:bg-gray-100">Sport</a></li>
+                        <li><a href="tech.html" class="block px-4 py-2 hover:bg-gray-100">Technology</a></li>
+                        <li><a href="food.html" class="block px-4 py-2 hover:bg-gray-100">Food</a></li>
+                        <li><a href="education.html" class="block px-4 py-2 hover:bg-gray-100">Education</a></li>
+                        <li><a href="health.html" class="block px-4 py-2 hover:bg-gray-100">Health</a></li>
+                        <li><a href="lifestyle.html" class="block px-4 py-2 hover:bg-gray-100">Lifestyle</a></li>
+                        <li><a href="religion.html" class="block px-4 py-2 hover:bg-gray-100">Religion</a></li>
+                        <li><a href="travel.html" class="block px-4 py-2 hover:bg-gray-100">Travel</a></li>
+                        <li><a href="entertainment.html" class="block px-4 py-2 hover:bg-gray-100">Entertainment</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <div class="md:col-span-2" id="mainPost">
+      <h1 class="text-xl font-bold mb-4">Food</h1>
+      <img src="./images/food3.jpeg" id="postImage" alt="Artisan Pizza"
+        class="w-full h-80 object-cover rounded-lg mb-6">
+      <p class="text-sm text-gray-500"><span class="font-semibold" id="postCategory">Recipes</span> • <span
+          id="postDate">June 15, 2024</span></p>
+      <h1 class="text-4xl font-extrabold mt-2 mb-4" id="postTitle">Mastering Home made food</h1>
+      <p class="mb-6 text-sm text-gray-600">By <span class="font-semibold" id="postAuthor">Chef Anabi</span></p>
+      <article class="prose lg:prose-xl" id="postContent">
+        <p>Discover the secrets to perfect home made food with our step-by-step guide. From crafting the ideal dough to
+          balancing toppings, learn how to create restaurant-quality pies in your own kitchen. We'll explore
+          fermentation techniques, wood-fired oven alternatives, and flavor pairing tips
+          Food is far more than just a necessity for survival—it's a universal language that connects people across
+          cultures, traditions, and generations. Whether it’s the aroma of a home-cooked meal, the thrill of trying
+          street food abroad, or the comfort of a favorite dish, food evokes emotion, memory, and community.
+
+          In today’s fast-paced world, the choices we make about what we eat have a direct impact on our health, energy,
+          and well-being. Whole, unprocessed foods like fruits, vegetables, grains, and lean proteins fuel the body with
+          essential nutrients. Meanwhile, processed and sugar-laden alternatives, though convenient, often contribute to
+          long-term health issues when consumed in excess.
+
+          Beyond health, food is also a powerful cultural storyteller. From Italian pasta to Nigerian jollof rice, every
+          dish has a history and tradition. Sharing a meal can foster conversation, bridge differences, and create
+          lasting memories.
+
+          As global awareness grows, so does the emphasis on sustainable eating—choosing local, seasonal, and
+          eco-friendly options to protect our planet while nourishing our bodies.
+
+          Ultimately, food is not just about eating; it's about choosing a lifestyle that promotes balance, joy, and
+          respect for both our bodies and our environment.. Whether you're a seasoned chef or a home cook, this guide
+          will help you elevate your culinary skills and impress your family and friends.</p>
+        <p>Food is far more than just a necessity for survival—it's a universal language that connects people across
+          cultures, traditions, and generations. Whether it's the aroma of a home-cooked meal, the thrill of trying
+          street food abroad, or the comfort of a favorite dish, food evokes emotion, memory, and community.</p>
+        </p>
+      </article>
+
+      <!-- Comment Section -->
+      <div class="mt-12">
+        <h2 class="text-2xl font-bold mb-4">Foodie Comments</h2>
+        <form id="commentForm" class="space-y-4 mb-6">
+          <input type="text" id="username" placeholder="Your name" required class="w-full border p-3 rounded" />
+          <textarea id="comment" placeholder="Share your cooking experience..." required
+            class="w-full border p-3 rounded h-32"></textarea>
+          <button type="submit" class="bg-red-900 text-white px-6 py-2 rounded hover:bg-red-800">Comment</button>
+        </form>
+        <div id="commentList" class="space-y-4"></div>
+      </div>
+    </div>
+
+    <!-- Related Posts -->
+    <div class="space-y-6">
+      <h2 class="text-xl font-bold mb-4">More Culinary Reads</h2>
+      <div class="space-y-4">
+        <button class="text-left bg-white shadow p-4 rounded hover:bg-orange-50" onclick="swapPost(1)">
+          <img src="./images/food2.jpeg" alt="Sushi" class="w-full h-32 object-cover rounded mb-2">
+          <h3 class="font-semibold">The Art of 9ja Rolling</h3>
+          <p class="text-sm text-gray-500">By Anabi </p>
+        </button>
+        <button class="text-left bg-white shadow p-4 rounded hover:bg-orange-50" onclick="swapPost(2)">
+          <img src="./images/food1.jpeg" alt="Chocolate" class="w-full h-32 object-cover rounded mb-2">
+          <h3 class="font-semibold">Test of Perfect cultural food</h3>
+          <p class="text-sm text-gray-500">By Gwalpwana</p>
+        </button>
+      </div>
+    </div>
+  </div>
+  <script>
+    let posts = [
+      {
+        title: "Mastering Home made food",
+        image: "./images/food3.jpeg",
+        content: "Discover the secrets to perfect home made food with our step-by-step guide. From crafting the ideal dough to balancing toppings, learn how to create restaurant-quality pies in your own kitchen....",
+        author: "Chef Anabi",
+        category: "Food",
+        date: "May 21, 2025"
+      },
+      {
+        title: "The Role of Diet in Preventing Disease",
+        image: "./images/food2.jpeg",
+        content: "A balanced diet can prevent many chronic conditions such as diabetes, hypertension, and heart disease. Learn which foods protect your body and how to build lasting healthy habits...",
+        author: "Chef Anabi",
+        category: "Food",
+        date: "May 20, 2025"
+      },
+      {
+        title: "Understanding Sleep and Brain Function",
+        image: "./images/food1.jpeg",
+        content: "Explore delicious recipes, cooking tips, global food trends, and expert kitchen hacks in our ...",
+        author: "Gwolpwana",
+        category: "Food",
+        date: "May 19, 2025"
+      }
+    ];
+
+    function swapPost(index) {
+      const post = posts[index];
+      document.getElementById("postTitle").textContent = post.title;
+      document.getElementById("postImage").src = post.image;
+      document.getElementById("postContent").innerHTML = `<p>${post.content}</p>`;
+      document.getElementById("postAuthor").textContent = post.author;
+      document.getElementById("postCategory").textContent = post.category;
+      document.getElementById("postDate").textContent = post.date;
+      localStorage.setItem("health-post-comments", JSON.stringify([])); // clear comments
+      loadComments();
+    }
+
+    const commentForm = document.getElementById("commentForm");
+    const commentList = document.getElementById("commentList");
+    const postKey = "health-post-comments";
+
+    function loadComments() {
+      const stored = JSON.parse(localStorage.getItem(postKey)) || [];
+      commentList.innerHTML = "";
+      stored.forEach(c => {
+        const div = document.createElement("div");
+        div.className = "border p-4 rounded bg-white";
+        div.innerHTML = `<p class="text-sm font-semibold">${c.name}</p><p>${c.text}</p>`;
+        commentList.appendChild(div);
+      });
+    }
+
+    commentForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value.trim;
+      const comment = document.getElementById("comment").value.trim();
+      if (!username || !comment) return;
+
+      const newComment = { name: username, text: comment };
+      const allComments = JSON.parse(localStorage.getItem(postKey)) || [];
+      allComments.unshift(newComment);
+      localStorage.setItem(postKey, JSON.stringify(allComments));
+      loadComments();
+      commentForm.reset();
+    });
+
+    loadComments();
+  </script>
+
+</body>
+
+</html>

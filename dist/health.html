@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Health Blog | TechTitans</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-50 text-gray-900">
+    <nav class="bg-white shadow">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <a href="index.html" class="text-xl font-bold text-red-900"
+            >TechTitans</a
+          >
+          <div class="relative group">
+            <button
+              class="bg-red-900 text-white px-6 py-2 rounded hover:bg-red-800 font-medium">
+              Categories ▼
+            </button>
+            <ul
+              class="absolute hidden group-hover:block bg-white shadow rounded mt-2 w-48 z-10">
+              <li>
+                <a href="sport.html" class="block px-4 py-2 hover:bg-gray-100"
+                  >Sport</a
+                >
+              </li>
+              <li>
+                <a href="tech.html" class="block px-4 py-2 hover:bg-gray-100"
+                  >Technology</a
+                >
+              </li>
+              <li>
+                <a href="food.html" class="block px-4 py-2 hover:bg-gray-100"
+                  >Food</a
+                >
+              </li>
+              <li>
+                <a
+                  href="education.html"
+                  class="block px-4 py-2 hover:bg-gray-100"
+                  >Education</a
+                >
+              </li>
+              <li>
+                <a href="health.html" class="block px-4 py-2 hover:bg-gray-100"
+                  >Health</a
+                >
+              </li>
+              <li>
+                <a
+                  href="lifestyle.html"
+                  class="block px-4 py-2 hover:bg-gray-100"
+                  >Lifestyle</a
+                >
+              </li>
+              <li>
+                <a
+                  href="religion.html"
+                  class="block px-4 py-2 hover:bg-gray-100"
+                  >Religion</a
+                >
+              </li>
+              <li>
+                <a href="travel.html" class="block px-4 py-2 hover:bg-gray-100"
+                  >Travel</a
+                >
+              </li>
+              <li>
+                <a
+                  href="entertainment.html"
+                  class="block px-4 py-2 hover:bg-gray-100"
+                  >Entertainment</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="md:col-span-2" id="mainPost">
+        <h1 class="text-xl font-bold mb-4">Health</h1>
+        <img
+          src="./images/health1.jpeg"
+          id="postImage"
+          alt="Post Image"
+          class="w-full h-80 object-cover rounded-lg mb-6" />
+        <p class="text-sm text-gray-500">
+          <span class="font-semibold" id="postCategory">Health</span> •
+          <span id="postDate">May 21, 2025</span>
+        </p>
+        <h1 class="text-4xl font-extrabold mt-2 mb-4" id="postTitle">
+          How Daily Walks Improve Mental Health
+        </h1>
+        <p class="mb-6 text-sm text-gray-600">
+          By <span class="font-semibold" id="postAuthor">Dr. Praise</span>
+        </p>
+        <article class="prose lg:prose-xl" id="postContent">
+          <p>
+            Research shows that taking a walk each day can significantly reduce
+            stress levels and boost your mood. Whether it's in nature or just
+            around your neighborhood, walking promotes better brain function and
+            emotional wellness Taking a daily walk may seem simple, but it's one
+            of the most effective ways to boost your physical and mental
+            well-being. Just 30 minutes of walking each day can lead to
+            significant health benefits. <br />
+
+            1. Supports Heart Health Walking gets your heart pumping and
+            improves blood circulation. It helps lower blood pressure, reduce
+            cholesterol levels, and decrease the risk of heart disease. <br />
+
+            2. Aids in Weight Management Regular walking helps burn calories and
+            maintain a healthy weight. It boosts your metabolism and can be a
+            key part of a balanced fitness routine. <br />
+
+            3. Strengthens Muscles and Joints Walking tones your leg and core
+            muscles and helps keep your joints flexible, reducing the risk of
+            stiffness and arthritis-related pain. <br />
+
+            4. Enhances Mental Health A brisk walk outdoors can reduce stress,
+            anxiety, and symptoms of depression. It also boosts mood and mental
+            clarity by increasing the release of endorphins — your brain's
+            feel-good chemicals. <br />
+
+            5. Improves Sleep Quality People who walk daily often fall asleep
+            faster and enjoy deeper sleep. Exposure to natural light during your
+            walk also helps regulate your sleep-wake cycle. <br />
+
+            6. Boosts Immune Function Consistent walking may strengthen your
+            immune system, making you less prone to infections and chronic
+            diseases.
+          </p>
+        </article>
+        <div class="mt-12">
+          <h2 class="text-2xl font-bold mb-4">Comments</h2>
+          <form id="commentForm" class="space-y-4 mb-6">
+            <input
+              type="text"
+              id="username"
+              placeholder="Your name"
+              required
+              class="w-full border p-3 rounded" />
+            <textarea
+              id="comment"
+              placeholder="Your comment"
+              required
+              class="w-full border p-3 rounded h-32"></textarea>
+            <button
+              type="submit"
+              class="bg-red-900 text-white px-6 py-2 rounded hover:bg-green-800">
+              Comment
+            </button>
+          </form>
+          <div id="commentList" class="space-y-4"></div>
+        </div>
+      </div>
+      <aside class="space-y-6">
+        <h2 class="text-xl font-bold mb-4">Related Health News</h2>
+        <div class="space-y-4">
+          <button
+            class="text-left bg-white shadow p-4 rounded hover:bg-blue-50"
+            onclick="swapPost(1)">
+            <img
+              src="./images/health2.jpeg"
+              alt=""
+              class="w-full h-32 object-cover rounded mb-2" />
+            <h3 class="font-semibold">
+              The Role of Diet in Preventing Disease
+            </h3>
+            <p class="text-sm text-gray-500">By Andrew</p>
+          </button>
+          <button
+            class="text-left bg-white shadow p-4 rounded hover:bg-blue-50"
+            onclick="swapPost(2)">
+            <img
+              src="./images/health3.jpeg"
+              alt=""
+              class="w-full h-32 object-cover rounded mb-2" />
+            <h3 class="font-semibold">
+              Understanding Sleep and Brain Function
+            </h3>
+            <p class="text-sm text-gray-500">By Dr. Anabi</p>
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-20">
+      <div class="max-w-6xl mx-auto px-4 py-8 text-center text-gray-600">
+        &copy; 2025 MyBlog. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      let posts = [
+        {
+          title: "How Daily Walks Improve Mental Health",
+          image: "./images/health1.jpeg",
+          content:
+            "Research shows that taking a walk each day can significantly reduce stress levels and boost your mood. Whether it's in nature or just around your neighborhood, walking promotes better brain function and emotional wellness Taking a daily walk may seem simple, but it's one of the most effective ways to boost your physical and mental well-being. Just 30 minutes of walking each day can lead to significant health benefits...",
+          author: "Dr. Praise Azena",
+          category: "Health",
+          date: "May 21, 2025",
+        },
+        {
+          title: "The Role of Diet in Preventing Disease",
+          image: "./images/health2.jpeg",
+          content:
+            "A balanced diet can prevent many chronic conditions such as diabetes, hypertension, and heart disease. Learn which foods protect your body and how to build lasting healthy habits...",
+          author: "Dr. Andrew",
+          category: "Health",
+          date: "May 20, 2025",
+        },
+        {
+          title: "Understanding Sleep and Brain Function",
+          image: "./images/health3.jpeg",
+          content:
+            "Sleep plays a critical role in memory, focus, and emotional stability. Without proper rest, cognitive decline can set in earlier than expected. Here's how to optimize your sleep schedule...",
+          author: "Dr. Anabi",
+          category: "Health",
+          date: "May 19, 2025",
+        },
+      ];
+
+      function swapPost(index) {
+        const post = posts[index];
+        document.getElementById("postTitle").textContent = post.title;
+        document.getElementById("postImage").src = post.image;
+        document.getElementById(
+          "postContent"
+        ).innerHTML = `<p>${post.content}</p>`;
+        document.getElementById("postAuthor").textContent = post.author;
+        document.getElementById("postCategory").textContent = post.category;
+        document.getElementById("postDate").textContent = post.date;
+        localStorage.setItem("health-post-comments", JSON.stringify([])); // clear comments
+        loadComments();
+      }
+
+      const commentForm = document.getElementById("commentForm");
+      const commentList = document.getElementById("commentList");
+      const postKey = "health-post-comments";
+
+      function loadComments() {
+        const stored = JSON.parse(localStorage.getItem(postKey)) || [];
+        commentList.innerHTML = "";
+        stored.forEach((c) => {
+          const div = document.createElement("div");
+          div.className = "border p-4 rounded bg-white";
+          div.innerHTML = `<p class="text-sm font-semibold">${c.name}</p><p>${c.text}</p>`;
+          commentList.appendChild(div);
+        });
+      }
+
+      commentForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const username = document.getElementById("username").value.trim;
+        const comment = document.getElementById("comment").value.trim();
+        if (!username || !comment) return;
+
+        const newComment = { name: username, text: comment };
+        const allComments = JSON.parse(localStorage.getItem(postKey)) || [];
+        allComments.unshift(newComment);
+        localStorage.setItem(postKey, JSON.stringify(allComments));
+        loadComments();
+        commentForm.reset();
+      });
+
+      loadComments();
+    </script>
+  </body>
+</html>

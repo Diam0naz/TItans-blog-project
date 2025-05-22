@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .navbar {
+        background-color: #333;
+        padding: 1rem;
+      }
+
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 10px;
+      }
+
+      .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px 0;
+        background-color: white;
+        transition: all 0.3s ease;
+      }
+
+      .nav-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+      }
+
+      .nav-item {
+        margin: 0 15px;
+      }
+
+      .nav-link {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .nav-menu {
+          position: fixed;
+          left: -100%;
+          top: 70px;
+          gap: 0;
+          flex-direction: column;
+          background-color: #333;
+          width: 100%;
+          text-align: center;
+          transition: 0.3s;
+          padding: 1rem 0;
+        }
+
+        .nav-menu.active {
+          left: 0;
+        }
+
+        .nav-item {
+          margin: 15px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <select
+      id="categoryDropdown"
+      class="w-full border border-gray-300 rounded-md px-3 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-red-500">
+      <option value="" disabled selected>-- Select a Category --</option>
+    </select> -->
+
+    <nav class="navbar">
+      <button class="hamburger" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.querySelector(".nav-menu");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      // Close menu when clicking on a nav link
+      document.querySelectorAll(".nav-link").forEach((n) =>
+        n.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navMenu.classList.remove("active");
+        })
+      );
+    </script>
+    <script src="./tests.js"></script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Hamburger Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class="bg-gray-800 p-4">
+      
+    </nav>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const bars = hamburger.querySelectorAll('span');
+
+        hamburger.addEventListener('click', () => {
+            // Toggle menu visibility
+            navMenu.classList.toggle('-translate-x-full');
+            
+            // Animate hamburger bars
+            bars.forEach((bar, index) => {
+                if(index === 0) {
+                    bar.classList.toggle('translate-y-[9px]');
+                    bar.classList.toggle('rotate-45');
+                }
+                if(index === 1) {
+                    bar.classList.toggle('opacity-0');
+                }
+                if(index === 2) {
+                    bar.classList.toggle('-translate-y-[9px]');
+                    bar.classList.toggle('-rotate-45');
+                }
+            });
+        });
+
+        // Close menu when clicking nav links (mobile only)
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if(window.innerWidth < 768) {
+                    navMenu.classList.add('-translate-x-full');
+                    bars.forEach((bar, index) => {
+                        if(index === 0) {
+                            bar.classList.remove('translate-y-[9px]', 'rotate-45');
+                        }
+                        if(index === 1) {
+                            bar.classList.remove('opacity-0');
+                        }
+                        if(index === 2) {
+                            bar.classList.remove('-translate-y-[9px]', '-rotate-45');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

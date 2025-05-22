@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+
+    </nav>
+          <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="md:col-span-2" id="mainPost">
+            <h1 class="text-xl font-bold mb-4">Science</h1>
+            <img src="./img/sci1.jpg" id="postImage" alt="Sport Image"
+                class="w-full h-80 object-cover rounded-lg mb-6">
+            <p class="text-sm text-gray-500"><span class="font-semibold" id="postCategory">Science</span> • <span
+                    id="postDate">May 21, 2025</span></p>
+            <h1 class="text-4xl font-extrabold mt-2 mb-4" id="postTitle">Scientists Analyze Blood Sample in Breakthrough Medical Research
+            </h1>
+            <p class="mb-6 text-sm text-gray-600">By <span class="font-semibold" id="postAuthor">Gotom Golponer Haruna</span>
+            </p>
+            <article class="prose lg:prose-xl" id="postContent">
+                <p>In a promising development for medical science, researchers at a leading laboratory are conducting detailed analysis of a newly acquired blood sample that could pave the way for groundbreaking discoveries. The team, comprised of expert scientists, is using advanced diagnostic tools and computer modeling to study potential markers for disease and treatment efficacy.
+
+                    Wearing full protective gear, the researchers are carefully examining the sample for signs of rare biomarkers that may hold the key to early diagnosis of complex conditions, including certain cancers and genetic disorders. Their work forms part of a larger project aimed at developing faster, more accurate diagnostic methods.
+
+                   “This is a crucial step in advancing precision medicine,” said one of the lead scientists. “The data we're collecting could significantly impact how we detect and treat illnesses in the near future.”
+
+                   As global health challenges continue to evolve, efforts like these underscore the importance of scientific innovation in improving public health outcomes. The research team remains optimistic that their findings will contribute to life-saving medical breakthroughs.</p>
+            </article>
+            <div class="mt-12">
+                <h2 class="text-2xl font-bold mb-4">Comments</h2>
+                <form id="commentForm" class="space-y-4 mb-6">
+                    <input type="text" id="username" placeholder="Your name" required
+                        class="w-full border p-3 rounded border-slate-900" />
+                    <textarea id="comment" placeholder="Your comment" required
+                        class="w-full border p-3 rounded h-32"></textarea>
+                    <button type="submit"
+                        class="bg-[#023020] text-white px-6 py-2 rounded hover:bg-red-800">Comment</button>
+                </form>
+                <div id="commentList" class="space-y-4"></div>
+            </div>
+        </div>
+        <aside class="space-y-6">
+            <h2 class="text-xl font-bold mb-4">Related News</h2>
+            <div class="space-y-4">
+                <button class="text-left bg-white shadow p-4 rounded hover:bg-blue-50" onclick="swapPost(1)">
+                    <img src="./img/national-cancer-institute-MQ2UDWKZgIM-unsplash.jpg" alt="" class="w-full h-32 object-cover rounded mb-2">
+                    <h3 class="font-semibold">Scientist Operates Advanced Lab Equipment in Pioneering Research Study </h3>
+                    <p class="text-sm text-gray-500">By Dr Mu'ubar</p>
+                </button>
+                <button class="text-left bg-white shadow p-4 rounded hover:bg-blue-50" onclick="swapPost(2)">
+                    <img src="./img/national-cancer-institute-E9Ucfek-Lp0-unsplash.jpg" alt="" class="w-full h-32 object-cover rounded mb-2">
+                    <h3 class="font-semibold">Precision in Progress: Scientist Handles Vital Samples in Groundbreaking Biomedical Research </h3>
+                    <p class="text-sm text-gray-500">News 24/7</p>
+                
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-20">
+        <div class="max-w-6xl mx-auto px-4 py-8 text-center text-gray-600">
+            &copy; 2025 MyBlog. All rights reserved.
+        </div>
+    </footer>
+    <section>
+
+    </section>
+</body>
+</html>
