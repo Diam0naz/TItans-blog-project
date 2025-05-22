@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login with Password Toggle</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body
     class="bg-[url('./images/68118486-8f72-41b0-b3a2-a47dfe69481a.jpg')] min-h-screen flex items-center justify-center">
     <form
-      id="loginForm"
+      id="form"
       class="bg-white p-8 rounded-lg shadow-md w-full max-w-md space-y-4">
       <!-- Existing form elements... -->
       <img
@@ -83,6 +83,7 @@
         </p>
       </div>
       <button
+        id=""
         type="submit"
         class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition-colors">
         login
@@ -109,6 +110,46 @@
           "aria-label",
           isPassword ? "Hide password" : "Show password"
         );
+      });
+
+      // Login Logic
+      document.getElementById("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        fetch("https://test.blockfuselabs.com/api/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            accept: "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        })
+          .then(async (response) => {
+            const data = await response.json();
+            if (response.ok) {
+              alert("Login successful!");
+              localStorage.setItem("authToken", data.token);
+
+              const user = {
+                email: email,
+                token: data.token,
+                isLog: true,
+              };
+
+              localStorage.setItem("loggedInEmail", email);
+              localStorage.setItem(email, JSON.stringify(user));
+
+              window.location.href = "./createPost.html";
+            } else {
+              alert(data.message || "Login failed.");
+            }
+          })
+          .catch(() => {
+            alert("Network error.");
+          });
       });
 
       // Rest of the validation code remains the same...

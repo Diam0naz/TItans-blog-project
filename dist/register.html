@@ -97,18 +97,52 @@
         e.preventDefault();
 
         if (validateForm()) {
-          // Form is valid - process registration
-          const userData = {
-            fullname: form.fullname.value.trim(),
-            email: form.email.value.trim(),
-            password: form.password.value,
-            team: form.team.value,
-          };
-          console.log("Valid form data:", userData);
-          // Here you would typically send data to your API
-        }
+          // Get all form field values
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value;
+          const team_name = document.getElementById("team").value;
 
-        
+          // Debug: Check what's being sent
+          console.log("Sending:", { name, email, password, team_name });
+
+          console.log("Final values being sent:", {
+            fullname: name,
+            email,
+            password,
+            team: team_name,
+          });
+          console.log(localStorage.getItem("registeredUser"));
+
+          // Send data to API
+          fetch("https://test.blockfuselabs.com/api/register", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              accept: "application/json",
+            },
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              password: password,
+              team_name: team_name,
+            }),
+          })
+            .then(async (response) => {
+              let data = await response.json();
+              if (response.ok) {
+                alert("User registered successfully!");
+                localStorage.setItem("registeredUser", JSON.stringify(data));
+                window.location.href = "./login.html";
+              } else {
+                alert(data.message || "Registration failed.");
+              }
+            })
+            .catch((error) => {
+              alert("Network error.");
+              console.error(error);
+            });
+        }
       });
 
       function validateForm() {
@@ -168,39 +202,6 @@
         const errorElement = document.getElementById(elementId);
         errorElement.classList.add("hidden");
       }
-
-      // const name = document.getElementById("name").value;
-      // const email = document.getElementById("email").value;
-      // const password = document.getElementById("password").value;
-      // const team_name = document.getElementById("team").value;
-
-      // fetch("https://test.blockfuselabs.com/api/register", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     accept: "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     name,
-      //     email,
-      //     password,
-      //     team_name,
-      //   }),
-      // })
-      //   .then(async (response) => {
-      //     const data = await response.json();
-      //     if (response.ok) {
-      //       alert("User registered successfully!");
-      //       localStorage.setItem("registeredUser", JSON.stringify(data));
-      //       window.location.href = "./login.html";
-      //     } else {
-      //       alert(data.message || "Registration failed.");
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     alert("Network error.");
-      //     console.error(error);
-      //   });
     </script>
   </body>
 </html>
