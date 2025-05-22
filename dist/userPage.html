@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Create Post</title>
+    <link rel="stylesheet" href="./style.css" />
+    <!-- <link rel="shortcut icon" href="./images/titans-logo.jpeg" type="image/x-icon"> -->
+  </head>
+
+  <body class="bg-white text-black min-h-screen">
+    <div class="flex w-full min-h-screen">
+      <!-- Sidebar -->
+      <aside
+        class="w-64 bg-yellow-500 text-white flex flex-col py-6 px-4 space-y-4">
+        <h2 class="text-2xl font-bold mb-6">Dashboard</h2>
+        <nav class="flex flex-col space-y-3">
+          <a href="./index.html" class="hover:bg-yellow-600 px-3 py-2 rounded"
+            >🏠 Home</a
+          >
+          <a
+            href="./categories.html"
+            class="hover:bg-yellow-600 px-3 py-2 rounded"
+            >📝 Categories</a
+          >
+          <a
+            href="./getpostbyid.html"
+            class="hover:bg-yellow-600 px-3 py-2 rounded"
+            >📄 Get Post By {id}</a
+          >
+          <a href="./delete.html" class="hover:bg-yellow-600 px-3 py-2 rounded"
+            >🗑️ Delete Post by {id}</a
+          >
+          <a
+            href="./updatepost.html"
+            class="hover:bg-yellow-600 px-3 py-2 rounded"
+            >✏️ Update a Post</a
+          >
+          <a
+            href="./addcomments.html"
+            class="hover:bg-yellow-600 px-3 py-2 rounded"
+            >💡Comments</a
+          >
+          <a
+            href="./getallcomment.html"
+            class="hover:bg-yellow-600 px-3 py-2 rounded"
+            >💡getall Comments</a
+          >
+        </nav>
+        <button
+          id="logoutBtn"
+          class="mt-auto bg-red-600 hover:bg-red-700 rounded px-4 py-2 text-white font-semibold">
+          Logout
+        </button>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 flex flex-col items-center py-10 px-6">
+        <h1 class="text-3xl font-bold mb-6 text-yellow-500">
+          Create a New Post
+        </h1>
+
+        <form
+          id="postForm"
+          class="w-full max-w-md bg-yellow-100 p-6 rounded-lg shadow-md"
+          enctype="multipart/form-data">
+          <label class="block mb-4">
+            <span class="text-sm font-medium">Title:</span>
+            <input
+              type="text"
+              id="title"
+              required
+              class="w-full mt-1 p-2 rounded border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+          </label>
+
+          <label class="block mb-4">
+            <span class="text-sm font-medium">Content:</span>
+            <textarea
+              id="content"
+              required
+              class="w-full mt-1 p-2 rounded border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+          </label>
+
+          <label class="block mb-4">
+            <span class="text-sm font-medium">Category ID:</span>
+            <input
+              type="number"
+              id="category_id"
+              required
+              class="w-full mt-1 p-2 rounded border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+          </label>
+
+          <label class="block mb-4">
+            <span class="text-sm font-medium">Featured Image (optional):</span>
+            <input
+              type="file"
+              id="image"
+              accept="image/*"
+              class="w-full mt-1 p-2 rounded border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+          </label>
+
+          <button
+            type="submit"
+            class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition">
+            Submit
+          </button>
+
+          <p id="responseMessage" class="mt-4 text-center font-medium"></p>
+        </form>
+
+        <hr class="w-full max-w-md my-10 border-yellow-300" />
+
+        <h2 class="text-2xl font-semibold text-yellow-600 mb-4">
+          Created Post:
+        </h2>
+        <div
+          id="postDisplay"
+          class="w-full max-w-md bg-white border border-yellow-200 p-4 rounded shadow-sm text-black">
+          <!-- Post will be displayed here -->
+        </div>
+      </main>
+    </div>
+
+    <script>
+      const loggedInEmail = localStorage.getItem("loggedInEmail");
+      const userData = localStorage.getItem(loggedInEmail);
+
+      // Logout logic
+      const logoutBtn = document.getElementById("logoutBtn");
+      logoutBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (loggedInEmail) {
+          const userData = localStorage.getItem(loggedInEmail);
+          if (userData) {
+            const user = JSON.parse(userData);
+            user.isLog = false;
+            localStorage.setItem(loggedInEmail, JSON.stringify(user));
+            localStorage.removeItem("loggedInEmail");
+            alert("You have been logged out.");
+            window.location.href = "login.html";
+          }
+        } else {
+          alert("No user logged in.");
+        }
+      });
+
+      // Post form submit logic
+      document
+        .getElementById("postForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const responseMessage = document.getElementById("responseMessage");
+          responseMessage.textContent = "";
+          responseMessage.style.color = "";
+
+          if (!loggedInEmail) {
+            responseMessage.textContent =
+              "❌ You must be logged in to create a post.";
+            responseMessage.style.color = "red";
+            return;
+          }
+
+          const userData = localStorage.getItem(loggedInEmail);
+          if (!userData) {
+            responseMessage.textContent = "❌ User data not found.";
+            responseMessage.style.color = "red";
+            return;
+          }
+
+          const user = JSON.parse(userData);
+          const token = user.token;
+          if (!token) {
+            responseMessage.textContent = "❌ Authentication token missing.";
+            responseMessage.style.color = "red";
+            return;
+          }
+
+          const title = document.getElementById("title").value.trim();
+          const content = document.getElementById("content").value.trim();
+          const categoryId = document
+            .getElementById("category_id")
+            .value.trim();
+          const imageInput = document.getElementById("image");
+
+          // Prepare FormData
+          const formData = new FormData();
+          formData.append("title", title);
+          formData.append("content", content);
+          formData.append("category_id", categoryId);
+          if (imageInput.files.length > 0) {
+            formData.append("featured_image", imageInput.files[0]);
+          }
+
+          fetch("https://test.blockfuselabs.com/api/posts", {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`, // Important: Do NOT set Content-Type manually with FormData
+            },
+            body: formData,
+          })
+            .then((response) => {
+              if (response.status === 201) return response.json();
+              else
+                return response.text().then((text) => {
+                  throw new Error(`❌ Error ${response.status}: ${text}`);
+                });
+            })
+            .then((data) => {
+              responseMessage.textContent = "✅ Post created successfully!";
+              responseMessage.style.color = "green";
+
+              const postDiv = document.getElementById("postDisplay");
+              postDiv.innerHTML = `
+          <h3 class="text-xl font-bold mb-2">${data.title}</h3>
+          <p class="mb-2">${data.content}</p>
+          ${
+            data.featured_image_url_full
+              ? `<img src="${data.featured_image_url_full}" alt="Post Image" class="w-full h-auto rounded mt-2" />`
+              : ""
+          }
+        `;
+
+              // Save post locally if you want
+              localStorage.setItem(`Post_${data.id}`, JSON.stringify(data));
+              document.getElementById("postForm").reset();
+            })
+            .catch((error) => {
+              responseMessage.textContent =
+                error.message || "Failed to create post.";
+              responseMessage.style.color = "red";
+              console.error("Post creation error:", error);
+            });
+        });
+    </script>
+  </body>
+</html>
