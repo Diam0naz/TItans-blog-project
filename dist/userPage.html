@@ -8,118 +8,427 @@
   </head>
 
   <body class="bg-white text-black min-h-screen">
-    <div class="flex w-full min-h-screen">
-      <!-- Sidebar -->
-      <aside
-        class="w-64 bg-yellow-500 text-white flex flex-col py-6 px-4 space-y-4">
-        <h2 class="text-2xl font-bold mb-6">Dashboard</h2>
-        <nav class="flex flex-col space-y-3">
-          <a href="./index.html" class="hover:bg-yellow-600 px-3 py-2 rounded"
-            >🏠 Home</a
-          >
-          <a
-            href="./categories.html"
-            class="hover:bg-yellow-600 px-3 py-2 rounded"
-            >📝 Categories</a
-          >
-          <a
-            href="./getpostbyid.html"
-            class="hover:bg-yellow-600 px-3 py-2 rounded"
-            >📄 Get Post By {id}</a
-          >
-          <a href="./delete.html" class="hover:bg-yellow-600 px-3 py-2 rounded"
-            >🗑️ Delete Post by {id}</a
-          >
-          <a
-            href="./updatepost.html"
-            class="hover:bg-yellow-600 px-3 py-2 rounded"
-            >✏️ Update a Post</a
-          >
-          <a
-            href="./addcomments.html"
-            class="hover:bg-yellow-600 px-3 py-2 rounded"
-            >💡Comments</a
-          >
-          <a
-            href="./getallcomment.html"
-            class="hover:bg-yellow-600 px-3 py-2 rounded"
-            >💡getall Comments</a
-          >
-        </nav>
-        <button
-          id="logoutBtn"
-          class="mt-auto bg-red-600 hover:bg-red-700 rounded px-4 py-2 text-white font-semibold">
-          Logout
-        </button>
-      </aside>
+    <!-- nav bar -->
 
-      <!-- Main Content -->
-      <main class="flex-1 flex flex-col items-center py-10 px-6">
-        <h1 class="text-3xl font-bold mb-6 text-yellow-500">
-          Create a New Post
-        </h1>
-
-        <form
-          id="postForm"
-          class="w-full max-w-md bg-yellow-100 p-6 rounded-lg shadow-md"
-          enctype="multipart/form-data">
-          <label class="block mb-4">
-            <span class="text-sm font-medium">Title:</span>
-            <input
-              type="text"
-              id="title"
-              required
-              class="w-full mt-1 p-2 rounded border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
-          </label>
-
-          <label class="block mb-4">
-            <span class="text-sm font-medium">Content:</span>
-            <textarea
-              id="content"
-              required
-              class="w-full mt-1 p-2 rounded border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
-          </label>
-
-          <label class="block mb-4">
-            <span class="text-sm font-medium">Category ID:</span>
-            <input
-              type="number"
-              id="category_id"
-              required
-              class="w-full mt-1 p-2 rounded border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
-          </label>
-
-          <label class="block mb-4">
-            <span class="text-sm font-medium">Featured Image (optional):</span>
-            <input
-              type="file"
-              id="image"
-              accept="image/*"
-              class="w-full mt-1 p-2 rounded border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
-          </label>
-
+    <div class="w-full bg-slate-100">
+      <!-- nav 2 -->
+      <div
+        class="w-full bg-white fixed top-0 z-30 h-32 flex justify-between items-center flex-col">
+        <!-- min bar 2 -->
+        <div
+          class="max-w-6xl px-4 mx-auto lg:flex lg:flex-col py-2 flex flex-row-reverse justify-between">
+          <!-- responsiveness -->
+          <!-- Hamburger Button -->
           <button
-            type="submit"
-            class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition">
-            Submit
+            id="hamburger"
+            class="md:hidden block p-2 focus:outline-none"
+            aria-label="Toggle menu">
+            <div class="w-6 space-y-2">
+              <span
+                class="block w-full h-[2px] bg-red-500 transition-all duration-300 ease-in-out origin-center"></span>
+              <span
+                class="block w-full h-[1px] bg-black transition-all duration-300 ease-in-out"></span>
+              <span
+                class="block w-full h-[1px] bg-black transition-all duration-300 ease-in-out origin-center"></span>
+            </div>
           </button>
 
-          <p id="responseMessage" class="mt-4 text-center font-medium"></p>
-        </form>
+          <!-- Navigation Menu -->
+          <ul
+            id="nav-menu"
+            class="lg:hidden fixed md:relative left-0 md:left-auto top-16 md:top-0 w-full md:w-auto h-[500px] md:h-auto bg-gradient-to-tr from-red-500 to-transparent backdrop-blur-sm md:bg-transparent transform -translate-x-full translate-y-4 md:translate-x-0 transition-transform duration-300 ease-in-out z-50 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 p-4 md:p-0">
+            <li>
+              <a
+                href="#"
+                class="text-white hover:text-red-600 text-lg md:text-base block"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-white hover:text-red-600 text-lg md:text-base block"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-white hover:text-red-600 text-lg md:text-base block"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-white hover:text-red-600 text-lg md:text-base block"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <!-- nav -->
+          <nav class="hidden lg:flex justify-between items-center gap-32">
+            <ul class="flex justify-between items-center w-[70%] gap-10">
+              <li><a href="#" class="text-red-600 font-semibold">HOME</a></li>
+              <li class="group relative">
+                <a
+                  href="#"
+                  class="font-medium hover:text-red-500 transition-colors duration-1000 ease-out"
+                  ><p>CATEGORIES</p>
+                </a>
+                <ul
+                  class="hidden group-focus:block group-hover:transition translate-y-[30px] duration-1000 ease-out absolute delay-500 top-0 b bg-red-500 left-0 group-hover:block z-10 text-white gap-[2px] w-72">
+                  <li
+                    class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                    <a href=""> HEALTH</a>
+                  </li>
+                  <li
+                    class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                    <a href=""> TECHNOLOGY </a>
+                  </li>
+                  <li
+                    class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                    <a href=""> BUSINESS </a>
+                  </li>
+                  <li
+                    class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                    <a href=""> LIFESTYLE </a>
+                  </li>
+                  <li
+                    class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                    <a href=""> TRAVEL </a>
+                  </li>
+                  <li
+                    class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                    <a href=""> FOOD </a>
+                  </li>
+                  <li
+                    class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                    <a href=""> SPORTS</a>
+                  </li>
+                  <li
+                    class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                    <a href=""> SCIENCE</a>
+                  </li>
+                  <li
+                    class="h-14 flex flex-col items-left hover:bg-black p-5 transition-colors duration-1000 ease-out">
+                    <a href=""> ENTERTAINMENT</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-medium hover:text-re-500 transition-colors duration-1000 ease-out"
+                  >PAGES</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-medium hover:text-red-500 transition-colors duration-1000 ease-out"
+                  >POLITICS</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-medium hover:text-red-500 transition-colors duration-1000 ease-out"
+                  >FASHION</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-medium hover:text-red-500 transition-colors duration-1000 ease-out"
+                  >BUSINESS</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-medium hover:text-red-500 transition-colors duration-1000 ease-out"
+                  >SPORTS</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-medium hover:text-red-500 transition-colors duration-1000 ease-out"
+                  >TRAVEL</a
+                >
+              </li>
+            </ul>
+            <div>
+              <div class="flex gap-3 items-center">
+                <!-- Login buttons -->
+                <div class="hidden" id="auth">
+                  <button
+                    class="w-40 h-12 hover:bg-red-500 transition-all duration-500 delay-100 rounded-lg">
+                    <a href="./login.html">Login</a>
+                  </button>
+                  <button
+                    class="bg-red-500 hover:bg-red-800 text-center text-white font-semibold rounded-lg h-12 w-40">
+                    <a href="./register.html">Sign-up</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="w-full bg-red-500 min-h-[20px]"></div>
+        <hr class="border border-slate-300" />
+      </div>
+    </div>
+    <div class="lg:w-full lg:grid lg:grid-cols-6">
+      <!-- first nav -->
+      <aside
+        class="lg:col-start-1 w-[300px] fixed top-0 z-50 h-full lg:col-span-1 bg-gray-200 lg:p-5 flex justify-start flex-col items-start">
+        <!-- logo -->
+        <div>
+          <img
+            src="./images/ChatGPT_Image_May_22__2025__01_19_05_AM-removebg-preview.png"
+            alt=""
+            class="size-28 object-contain" />
+        </div>
 
-        <hr class="w-full max-w-md my-10 border-yellow-300" />
-
-        <h2 class="text-2xl font-semibold text-yellow-600 mb-4">
-          Created Post:
-        </h2>
         <div
-          id="postDisplay"
-          class="w-full max-w-md bg-white border border-yellow-200 p-4 rounded shadow-sm text-black">
-          <!-- Post will be displayed here -->
+          class="lg:my-5 text-[1.5rem] font-light lg:hover:text-red-600 transition-all hover:translate-x-3 ease-out duration-500 rounded-r-full text-left">
+          <button class="w-full h-36"><a href="">Categories</a></button>
+        </div>
+
+        <div class="lg:my-5">
+          <button
+            class="w-full h-36 text-[1.5rem] font-light lg:hover:text-red-600 ease-out duration-500 transition-all hover:translate-x-3">
+            <a href="">My Posts</a>
+          </button>
+        </div>
+
+        <div class="lg:my-5">
+          <button
+            class="w-full h-36 text-[1.5rem] font-light lg:hover:text-red-600 ease-out duration-500 transition-all hover:translate-x-3">
+            <a href="">Update Posts</a>
+          </button>
+        </div>
+
+        <div
+          class="lg:my-5 text-[1.5rem] font-light lg:hover:text-red-600 transition-all hover:translate-x-3 ease-out duration-500 rounded-r-full text-left">
+          <button class="w-full h-36"><a href="">Logout</a></button>
+        </div>
+      </aside>
+
+      <!-- Main div -->
+      <main class="group lg:col-start-2 lg:col-span-3">
+        <div class="flex flex-col justify-around items-start mt-10">
+          <div
+            class="h-[10%] text-[3rem] font-medium text-gray-600 font-serif p-3">
+            <h2>Reading Culture of the African Race.</h2>
+          </div>
+          <div class="w-full h-[30%] overflow-hidden relative">
+            <img
+              src="./images/stack-newspapers-magazines.jpg"
+              alt="Alt"
+              class="group-hover:brightness-90 group-hover:scale-105 transition-all ease-out duration-500" />
+            <div
+              class="absolute top-5 right-5 size-10 rounded-full bg-slate-300 z-20 flex justify-center items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+              </svg>
+            </div>
+          </div>
+          <h1 class="my-4 font-medium text-[2rem]">Rising Cost of Papers</h1>
+          <p
+            class="text-slate-800 p-5 first-letter:text-[1.8rem] first-letter:font-medium text-lg bg-gray-100">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae quo
+            nulla quas pariatur quaerat at! Autem eaque praesentium aliquam
+            natus, ex delectus totam porro, consequatur voluptatibus architecto
+            minus incidunt unde? Deserunt quasi accusantium officiis laudantium
+            magni, nemo doloremque reprehenderit incidunt vel debitis aliquam
+            fugit, at dicta, animi dolorem temporibus saepe? Eveniet quisquam
+            tempore nobis possimus. Corrupti libero ad molestiae magnam! Quo
+            corporis f tenetur, neque veniam fuga doloribus iure praesentium it
+            et ac distinctio ut facilis harum voluptatibus sunt dolorem minus,
+            quas inventore sint! Velit dolor facere, earum deleniti animi a
+            suscipit tempora eveniet repellat quis nesciunt, ipsa esse quasi
+            asperiores ab veniam, consequuntur dolores dicta laudantium iusto.
+            Hic aliquid quae nihil sunt libero.
+          </p>
+          <div class="flex justify-center gap-3 items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            <span class="my-5">Written by Adam Willy</span>
+          </div>
+        </div>
+        <div class="w-full h-60 bg-gray-400 my-5 p-5 rounded-xl">
+          <h3 class="m-4 font-medium text-[2rem]">Comments</h3>
+        </div>
+        <div
+          class="w-1/2 bg-gray-200 h-24 flex hover:brightness-90 justify-center items-center rounded-lg my-5">
+          <button class="flex justify-center gap-3 items-center">
+            <span class="font-semibold text-[2.5rem] text-gray-700"
+              >Write a Story</span
+            >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-11">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+            </svg>
+          </button>
         </div>
       </main>
-    </div>
 
+      <!-- Aside 2 -->
+
+      <aside
+        class="lg:col-start-5 lg:col-span-2 fixed top-[90px] w-[600px] right-0 flex flex-col justify-start items-center">
+        <div class="flex flex-col justify-start h-1/2 items-start w-full p-5">
+          <div>
+            <h3 class="my-4 font-normal text-[2rem] flex gap-3 items-center">
+              More Stories!<svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-10">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
+              </svg>
+            </h3>
+          </div>
+          <button
+            class="w-full h-16 border border-red-500 rounded-xl my-2 flex justify-center items-center gap-3 hover:bg-red-400 hover:text-gray-50 transition-colors ease-out duration-500">
+            Education<svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+            </svg>
+          </button>
+          <button
+            class="w-full h-16 border border-red-500 rounded-xl my-2 flex justify-center items-center gap-3 hover:bg-red-400 hover:text-gray-50 transition-colors ease-out duration-500">
+            Travel
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 0-8.862 12.872M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 0 1-5.276 3.67m0 0a9 9 0 0 1-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
+            </svg>
+          </button>
+          <button
+            class="w-full h-16 border border-red-500 rounded-xl my-2 flex justify-center items-center gap-3 hover:bg-red-400 hover:text-gray-50 transition-colors ease-out duration-500">
+            Business<svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
+            </svg>
+          </button>
+          <button
+            class="w-full h-16 border border-red-500 rounded-xl my-2 flex justify-center items-center gap-3 hover:bg-red-400 hover:text-gray-50 transition-colors ease-out duration-500">
+            Politics<svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z" />
+            </svg>
+          </button>
+        </div>
+        <div class="h-1/2 w-full">
+          <div class="w-full h-full">
+            <h3 class="flex gap-3 items-center my-4 font-light text-[2rem]">
+              Comment on this Story!
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+              </svg>
+            </h3>
+            <textarea
+              name=""
+              id="comment"
+              class="w-[80%] h-60 bg-gray-100 rounded-xl p-5 m-4"></textarea>
+            <button
+              class="w-48 h-16 bg-gray-500 text-gray-50 hover:bg-gray-700 rounded-lg mx-4 my-3">
+              <span
+                class="text-2xl font-medium flex items-center gap-3 justify-center"
+                >Post<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </aside>
+    </div>
     <script>
       const loggedInEmail = localStorage.getItem("loggedInEmail");
       const userData = localStorage.getItem(loggedInEmail);
